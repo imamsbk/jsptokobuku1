@@ -2,7 +2,7 @@
 pageEncoding="ISO-8859-1"%>
 <%@ page import="java.sql.*" %>
 <%! String driverName = "com.mysql.jdbc.Driver";%>
-<%!String url = "jdbc:mysql://localhost:3310/guestbook";%>
+<%!String url = "jdbc:mysql://localhost:3306/guestbook";%>
 <%!String user = "root";%>
 <%!String psw = "";%>
 <%

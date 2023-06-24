@@ -17,7 +17,7 @@
     <% PreparedStatement pstmt = null; %>
 
     <%-- Mengatur informasi koneksi MySQL --%>
-    <% String url = "jdbc:mysql://localhost:3310/tokobuku"; %>
+    <% String url = "jdbc:mysql://localhost:3306/tokobuku"; %>
     <% String username = ""; %>
     <% String password = ""; %>
 

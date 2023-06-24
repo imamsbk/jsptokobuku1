@@ -5,7 +5,7 @@
     PreparedStatement pstmt = null;
     ResultSet rs = null;
 
-    String url = "jdbc:mysql://localhost:3310/tokobuku";
+    String url = "jdbc:mysql://localhost:3306/tokobuku";
     String username = "root";
     String password = "";
 
