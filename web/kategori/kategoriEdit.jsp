@@ -5,7 +5,7 @@
 <%
 String id = request.getParameter("id");
 String driver = "com.mysql.jdbc.Driver";
-String connectionUrl = "jdbc:mysql://localhost:3306/";
+String connectionUrl = "jdbc:mysql://localhost:3310/";
 String database = "tokobuku";
 String userid = "root";
 String password = "";
@@ -31,15 +31,14 @@ while(resultSet.next()){
 <body>
 <h1>Update data from database in jsp</h1>
 <form method="post" action="prosesEdit.jsp">
-<input type="text" name="id" value="<%=resultSet.getString("id_kategori") %>"
+<input type="hidden" name="id" value="<%=resultSet.getString("id") %>"
 <br>
 name:<br>
 <input type="text" name="name" value="<%=resultSet.getString("name") %>">
 <br>
 description:<br>
-<input type="text" name="desc" value="<%=resultSet.getString("desc") %>">
+<input type="text" name="description" value="<%=resultSet.getString("description") %>">
 <br>
-<br><br>
 <input type="submit" value="submit">
 </form>
 <%

@@ -15,7 +15,7 @@ import java.sql.*;
  * @author LENOVO
  */
 public class kategoriBean {
-    private String id_kategori, name, desc;
+    private String id_kategori, name, description;
     private final Koneksi koneksi = new Koneksi();
     private String pesan;
     private Object[][] list;
@@ -33,11 +33,11 @@ public class kategoriBean {
     public void setName(String name) {
         this.name = name;
     }
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescription(String desc) {
+        this.description = description;
     }
     public String getPesan() {
         return pesan;
@@ -52,45 +52,12 @@ public class kategoriBean {
         this.list = list;
     }
     
-    
-public boolean simpan() {
-    boolean adaKesalahan = false;
-    Connection connection;
-    if ((connection = koneksi.getConnection()) != null) {
-    int jumlahSimpan = 0;
-    boolean simpan = false;
-    Statement sta;
-    ResultSet rset;
-    try {
-    simpan = true;
-    String SQLStatemen = "insert into kategori(id_kategori, name, desc) "
-            + "values('" + id_kategori + "','" + name + "','" + desc  + "')";
-    sta = connection.createStatement();
-    jumlahSimpan = sta.executeUpdate(SQLStatemen);
-    if (simpan) {
-    if (jumlahSimpan < 1) {
-    adaKesalahan = true;
-    pesan = "Gagal menyimpan data kategori";
-    System.out.println(pesan);
-    }
-    } else {
-    adaKesalahan = true;
-    pesan = "Tidak dapat melakukan koneksi keserver\n" +
-   koneksi.getPesanKesalahan();
-    System.out.println(pesan);
-    }
-    } catch (SQLException ex) {
-    System.out.println(ex);
-    }
-    }
-    return !adaKesalahan;
-    }
-    
+   
     
     public Object[][] listData(int mulai, int jumlah) {
     boolean adaKesalahan = false;
     Connection connection;
-    this.desc = desc;
+    this.description= description;
     if ((connection = koneksi.getConnection()) != null) {
     String SQLStatemen;
     Statement sta;
@@ -106,10 +73,10 @@ public boolean simpan() {
     rset.first();
     int i = 0;
     do {
-    if (!rset.getString("desc").equals("")) {
-        list[i] = new Object[]{rset.getString("id_kategori"),
+    if (!rset.getString("description").equals("")) {
+        list[i] = new Object[]{rset.getString("id"),
                                rset.getString("name"),
-                               rset.getString("desc")};
+                               rset.getString("description")};
     }
     i++;
     } while (rset.next());

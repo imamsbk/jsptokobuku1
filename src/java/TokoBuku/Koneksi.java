@@ -10,7 +10,7 @@ import java.sql.*;
  */
 public class Koneksi {
     private static final String driver = "com.mysql.jdbc.Driver";
-    private static final String database = "jdbc:mysql://localhost:3306/tokobuku";
+    private static final String database = "jdbc:mysql://localhost:3310/tokobuku";
     private static final String user = "root";
     private static final String password = "";
     private Connection connection;

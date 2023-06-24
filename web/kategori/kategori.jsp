@@ -15,17 +15,14 @@
         <h1>Tambahkan Kategori Baru</h1>
  <form name="login" action="kategoriProcess.jsp" method="post">
  <table width="200" border="1">
- <tr>
- <td>id</td>
- <td><input type="text" name="id_kategori"></td>
- </tr>
+
  <tr>
  <td>nama</td>
  <td><input type="text" name="name"></td>
  </tr>
  <tr>
  <td>deskripsi</td>
- <td><input type="text" name="desc"></td>
+ <td><input type="text" name="description"></td>
  </tr>
  <tr>
  <td colspan="2"><input type="submit" name="Submit" value="Submit"></td>

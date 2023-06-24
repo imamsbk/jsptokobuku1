@@ -2,15 +2,13 @@
 pageEncoding="ISO-8859-1"%>
 <%@ page import="java.sql.*" %>
 <%! String driverName = "com.mysql.jdbc.Driver";%>
-<%!String url = "jdbc:mysql://localhost:3306/guestbook";%>
+<%!String url = "jdbc:mysql://localhost:3310/tokobuku";%>
 <%!String user = "root";%>
 <%!String psw = "";%>
 <%
 String id = request.getParameter("id");
 String name=request.getParameter("name");
-String address=request.getParameter("address");
-String company=request.getParameter("company");
-String email=request.getParameter("email");
+String description=request.getParameter("description");
 if(id != null)
 {
 Connection con = null;
@@ -20,12 +18,10 @@ try
 {
 Class.forName(driverName);
 con = DriverManager.getConnection(url,user,psw);
-String sql="Update guest_book set name=?,address=?,company=?,email=? where id="+id;
+String sql="Update kategori set name=?,description=? where id="+id;
 ps = con.prepareStatement(sql);
 ps.setString(1, name);
-ps.setString(2, address);
-ps.setString(3, company);
-ps.setString(4, email);
+ps.setString(2, description);
 int i = ps.executeUpdate();
 if(i > 0)
 {
@@ -44,5 +40,5 @@ out.println(sql);
 }
 %>
 <%
-response.setHeader("Refresh", "3; URL=http://localhost:8080/GuestBook/guestBookView.jsp");
+response.setHeader("Refresh", "3; URL=http://localhost:8080/jsptokobuku1/kategori/kategoriView.jsp");
 %>

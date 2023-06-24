@@ -5,9 +5,9 @@ String id=request.getParameter("id");
 try
 {
 Class.forName("com.mysql.jdbc.Driver");
-Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/guestbook", "root", "");
+Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3310/tokobuku", "root", "");
 Statement st=conn.createStatement();
-int i=st.executeUpdate("DELETE FROM guest_book WHERE id="+id);
+int i=st.executeUpdate("DELETE FROM kategori WHERE id="+id);
 out.println("Data Deleted Successfully!");
 }
 catch(Exception e)
@@ -17,5 +17,5 @@ e.printStackTrace();
 }
 %>
 <%
-response.setHeader("Refresh", "3; URL=http://localhost:8080/GuestBook/guestBookView.jsp");
+response.setHeader("Refresh", "3; URL=http://localhost:8080/jsptokobuku1/kategori/kategoriView.jsp");
 %>

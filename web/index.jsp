@@ -13,8 +13,6 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-           <%
-    response.setHeader("Refresh", "3; URL=http://localhost:8080/JSPTokoBuku/login.jsp");
-        %>
+           
     </body>
 </html>
