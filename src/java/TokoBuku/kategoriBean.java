@@ -28,6 +28,11 @@ public class kategoriBean {
     public void setId_kategori(String id_kategori) {
         this.id_kategori = id_kategori;
     }
+
+    
+    public void setName(String name) {
+        this.name = name;
+    }
     public String getDesc() {
         return desc;
     }
