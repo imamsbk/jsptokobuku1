@@ -13,7 +13,7 @@
             String password = request.getParameter("password");
 
             // Koneksi ke database
-            String url = "jdbc:mysql://localhost:3306/tokobuku"; // Ganti dengan URL database Anda
+            String url = "jdbc:mysql://localhost:3310/tokobuku"; // Ganti dengan URL database Anda
             String dbUsername = "root"; // Ganti dengan username database Anda
             String dbPassword = ""; // Ganti dengan password database Anda
             String driver = "com.mysql.jdbc.Driver";
