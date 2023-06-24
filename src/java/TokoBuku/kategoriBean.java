@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.*;
 
 /**
  *
@@ -21,40 +22,33 @@ public class kategoriBean {
     public String getName() {
     return name;
     }
-
     public String getId_kategori() {
         return id_kategori;
     }
-
     public void setId_kategori(String id_kategori) {
         this.id_kategori = id_kategori;
     }
-
     public String getDesc() {
         return desc;
     }
-
     public void setDesc(String desc) {
         this.desc = desc;
     }
-
     public String getPesan() {
         return pesan;
     }
-
     public void setPesan(String pesan) {
         this.pesan = pesan;
     }
-
     public Object[][] getList() {
         return list;
     }
-
     public void setList(Object[][] list) {
         this.list = list;
     }
     
-    public boolean simpan() {
+    
+public boolean simpan() {
     boolean adaKesalahan = false;
     Connection connection;
     if ((connection = koneksi.getConnection()) != null) {
@@ -65,7 +59,7 @@ public class kategoriBean {
     try {
     simpan = true;
     String SQLStatemen = "insert into kategori(id_kategori, name, desc) "
-            + "values('" + id_kategori + "','" + name + "','" + desc + "')";
+            + "values('" + id_kategori + "','" + name + "','" + desc  + "')";
     sta = connection.createStatement();
     jumlahSimpan = sta.executeUpdate(SQLStatemen);
     if (simpan) {
@@ -87,10 +81,11 @@ public class kategoriBean {
     return !adaKesalahan;
     }
     
+    
     public Object[][] listData(int mulai, int jumlah) {
     boolean adaKesalahan = false;
     Connection connection;
-    this.name = name;
+    this.desc = desc;
     if ((connection = koneksi.getConnection()) != null) {
     String SQLStatemen;
     Statement sta;
@@ -106,7 +101,7 @@ public class kategoriBean {
     rset.first();
     int i = 0;
     do {
-    if (!rset.getString("name").equals("")) {
+    if (!rset.getString("desc").equals("")) {
         list[i] = new Object[]{rset.getString("id_kategori"),
                                rset.getString("name"),
                                rset.getString("desc")};

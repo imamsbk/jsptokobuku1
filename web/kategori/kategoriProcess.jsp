@@ -1,20 +1,25 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="JSPTokoBuku" scope="page" class="TokoBuku.kategoriBean" />
-<jsp:setProperty name="JSPTokoBuku" property="*" />
+<jsp:useBean id="TokoBuku" scope="page" class="TokoBuku.kategoriBean" />
+<jsp:setProperty name="TokoBuku" property="*" />
+
+<%@ page import="java.sql.*" %>
+<%@ page import="javax.sql.*" %>
+<%@ page import="javax.naming.*" %>
+
 
 <% response.setHeader("Refresh", "3; URL=http://localhost:8080/JSPTokoBuku/kategori/kategoriView.jsp");
 %>
 
 <%
 String message = "";
-String id = request.getParameter("id_kategori") ;
+String id_kategori = request.getParameter("id_kategori") ;
 String name = request.getParameter("name") ;
 String desc = request.getParameter("desc") ;
 
 //jika name, address, company dan email tidak (“”) maka
-if((!id.equals("")) & (!name.equals("")) & (!desc.equals(""))){
-    if(JSPTokoBuku.simpan()){
-        message = "Thank you " + name + " for Registering ";
+if((!id_kategori.equals("")) & (!name.equals("")) & (!desc.equals(""))){
+    if(TokoBuku.simpan()){
+        message = "input success ";
         }else{
             message = "Error" ;
         }
